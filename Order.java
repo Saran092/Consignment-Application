@@ -1,10 +1,11 @@
+import java.time.LocalDate;
 class Order{
-	private String UserName,Source,Destination,typeOfGoods;
+	private String UserName,Source,Destination,typeOfGoods,OrderId,orderedDate,deliveryDate;
 	private float weight;
 	private double distance;
 	private int totalCost;
 
-	Order(String UserName,String Source,String Destination,String typeOfGoods,float weight,double distance,int totalCost)
+	Order(String UserName,String Source,String Destination,String typeOfGoods,float weight,double distance,int totalCost,String OrderId,String orderedDate,String deliveryDate)
 	{
 		this.UserName =UserName;
 		this.Source = Source;
@@ -13,6 +14,9 @@ class Order{
 		this.weight = weight;
 		this.distance = distance;
 		this.totalCost = totalCost;
+		this.OrderId = OrderId;
+		this.orderedDate = orderedDate;
+		this.deliveryDate = deliveryDate;
 	}
 
 	public int findCost(float weight,double distance,int addCost){
@@ -51,6 +55,18 @@ class Order{
 	public Integer getTotCost()
 	{
 		return totalCost;
+	}
+	public String getId()
+	{
+		return OrderId;
+	}
+	public String getOrdDate()
+	{
+		return orderedDate;
+	}
+	public String getDelDate()
+	{
+		return deliveryDate;
 	}
 	Order(){}
 }

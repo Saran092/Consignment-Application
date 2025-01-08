@@ -1,8 +1,7 @@
 class Customer{
-	private String UserName,Password,Contact;
-	private int CustomerID;
+	private String UserName,Password,Contact,CustomerID;
 
-	Customer(String UserName,String Password,String Contact,int CustomerID)
+	Customer(String UserName,String Password,String Contact,String CustomerID)
 	{
 		this.UserName = UserName;
 		this.Password = Password;
@@ -22,7 +21,7 @@ class Customer{
 	{
 		return Contact;
 	}
-	public int getId()
+	public String getId()
 	{
 		return CustomerID;
 	}

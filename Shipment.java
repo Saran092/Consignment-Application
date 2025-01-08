@@ -26,7 +26,7 @@ class Shipment {
 
     public double getUsedCapacity() {
         return usedCapacity;
-    }
+    }break;
 
     public int assignConsignment(String destination,double weight,List <Shipment> ArrayList)
     {
