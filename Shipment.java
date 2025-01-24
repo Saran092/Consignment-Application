@@ -96,7 +96,7 @@ class Shipment
             obj1.setUC(usedCapacity);
             capacity = 100-usedCapacity;
             obj1.setCap(capacity);
-            System.out.println("Consignment added successfully. Updated used capacity: " +usedCapacity);
+            System.out.println("\nConsignment added successfully. Updated used capacity: " +usedCapacity);
             System.out.println("Remaining Capacity :"+ obj1.getCapacity());
             return true;
         }

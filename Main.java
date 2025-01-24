@@ -19,8 +19,6 @@ class Main
 		double distance = 0.0,shWeight;
 		boolean check = false,SCh = false;
 
-		
-		
 		Admin admin = new Admin();
 		Customer customer = new Customer();
 		Order order = new Order();
@@ -45,17 +43,32 @@ class Main
         Shipment v4 = new Shipment("V4","Kanyakumari",100);
         Shipment v5 = new Shipment("V5","Theni",100);
        	Shipment v6 = new Shipment("V6","Kodaikanal",100);
+       	Shipment v7 = new Shipment("V7","Chennai",100);
+        Shipment v8 = new Shipment("V8","Madurai",100);
+        Shipment v9 = new Shipment("V9","Salem",100);
+        Shipment v10 = new Shipment("V10","Tirunelveli",100);
+        Shipment v11 = new Shipment("V11","Dindigul",100);
+       	Shipment v12 = new Shipment("V12","Ooty",100);
+
        	vehicle.put(v1.getVehicleId(),v1);
        	vehicle.put(v2.getVehicleId(),v2);
        	vehicle.put(v3.getVehicleId(),v3);
        	vehicle.put(v4.getVehicleId(),v4);
        	vehicle.put(v5.getVehicleId(),v5);
        	vehicle.put(v6.getVehicleId(),v6);
+       	vehicle.put(v7.getVehicleId(),v7);
+       	vehicle.put(v8.getVehicleId(),v8);
+       	vehicle.put(v9.getVehicleId(),v9);
+       	vehicle.put(v10.getVehicleId(),v10);
+       	vehicle.put(v11.getVehicleId(),v11);
+       	vehicle.put(v12.getVehicleId(),v12);
        	shObj.addAll(vehicle.values());
+
        	conObj.add(new Customer("Saran","6112","9677723396","CD73009"));
        	conObj.add(new Customer("Shelby","6112","0987654321","CD73010"));
 
 		do{
+
 			System.out.println("1.Admin Panel\n2.Customer Profiles\n3.Order Placement\n4.Shipment Management\n5.Delivery Status\n8.Exit");
 			System.out.println("Enter Your Choice:");
 			ch = Sc.nextInt();
@@ -157,7 +170,7 @@ class Main
 										        		System.out.println("Exiting...");
 										        	break;
 										            default:
-										            	System.out.println("Invalid Input..\n Try Again...");
+										            	System.out.println("Invalid Input..\nTry Again...");
 										            break;
 												}
 											}while(shCh<3);
@@ -225,7 +238,8 @@ class Main
 							System.out.println("\nLogin Successfully....");
 							System.out.println("Enter Your Customer Mobile No:");
 							cuCon = Sc.nextLine();
-							System.out.println("Menu for Source and Destination..\n1.Chennai to Coimbatore\n2.Madurai to Trichy\n3.Salem to Erode\n4.Tirunelveli to Kanyakumari\n5.Dindigul to Theni\n6.Ooty to Kodaikanal");
+							System.out.println("Menu for Source and Destination..\n1.Chennai to Coimbatore\n2.Madurai to Trichy\n3.Salem to Erode\n4.Tirunelveli to Kanyakumari\n5.Dindigul to Theni\n6.Ooty to Kodaikanal\n7.Coimbatore to Chennai\n8.Trichy to Madurai\n9.Erode to Salem\n10.Kanyakumari to Tirunelveli\n11.Theni to Dindigul\n12.Ooty to Kodaikanal");
+							
 							System.out.println("Enter Your Choice:");
 							orChoo = Sc.nextInt();
 							switch(orChoo){
@@ -257,6 +271,36 @@ class Main
 								case 6:
 									source = "Ooty";
 									destination = "Kodaikanal";
+									distance = 155.81;
+								break;							
+								case 7:
+									source = "Coimbatore";
+									destination = "Chennai";
+									distance = 427.18;
+								break;
+								case 8:
+									source = "Trichy";
+									destination = "Madurai";
+									distance = 115.17;
+								break;
+								case 9:
+									source = "Erode";
+									destination = "Salem";
+									distance = 58.89;
+								break;
+								case 10:
+									source = "Kanyakumari";
+									destination = "Tirunelveli";
+									distance = 73.24;
+								break;
+								case 11:
+									source = "Theni";
+									destination = "Dindigul";
+									distance = 67.91;
+								break;
+								case 12:
+									source = "Kodaikanal";
+									destination = "Ooty";
 									distance = 155.81;
 								break;
 								default:
@@ -322,78 +366,79 @@ class Main
 				break;
 
 				case 4:
-					System.out.println("Shipment Management");
-					System.out.print("1.Customer's Delevery Date\n2.View Active Shipment\n3.Vehicle ID for Customer Destination\n3.Exit\nEnter Your Choice:");
-					System.out.println("Enter Your Choice:");
-					shMch = Sc.nextInt();
-					switch (shMch) 
-					{
-						case 1:
-							// int count=;
-							Sc.nextLine();
-							SCh = false;
-							System.out.println("Delivery Date Finder:");
-							System.out.println("Enter Your Name:");
-							cuUser = Sc.nextLine();
-							if(obj.isEmpty())
-							{
-								System.out.println("No Order Details..");
-								break;
-							}
-							System.out.printf("%-20s%-20s%-20s%-20s%-20s\n","Customer ID","Customer Name","Ordered Destination","Ordered Date","Delivery Date");
-							for(Map.Entry<Customer,List<Order>> entry : obj.entrySet())
-							{
-								Customer cuP = entry.getKey();
-								if(cuUser.equals(cuP.getUser()))
+					do{
+						System.out.println("Shipment Management");
+						System.out.print("1.Customer's Delevery Date\n2.View Active Shipment\n3.Vehicle ID for Customer Destination\n3.Exit\nEnter Your Choice:");
+						System.out.println("Enter Your Choice:");
+						shMch = Sc.nextInt();
+						switch (shMch) 
+						{
+							case 1:
+								// int count=;
+								Sc.nextLine();
+								SCh = false;
+								System.out.println("Delivery Date Finder:");
+								System.out.println("Enter Your Name:");
+								cuUser = Sc.nextLine();
+								if(obj.isEmpty())
 								{
-									for(Order orP : entry.getValue()){
-										System.out.printf("%-20s%-20s%-20s%-20s%-20s\n",cuP.getId(),cuP.getUser(),orP.getDes(),orP.getOrdDate(),orP.getDelDate());
-										// break;
-										SCh = true;
-									}
+									System.out.println("No Order Details..");
+									break;
 								}
-							}
-							if(!SCh)
-								System.out.println("No User FOund...");
-							break;
-						case 2:
-							ship.viewActive(shObj);
-						break;
-						case 3:
-							Sc.nextLine();
-							SCh = false;
-							System.out.println("Enter UserName:");
-							user = Sc.nextLine();
-							System.out.println("Enter Your Password:");
-							pass = Sc.nextLine();
-							for(Customer cust:conObj)
-							{
-								if((cust.getUser().equals(user)) && (cust.getPass().equals(pass)))
+								System.out.printf("%-20s%-20s%-20s%-20s%-20s\n","Customer ID","Customer Name","Ordered Destination","Ordered Date","Delivery Date");
+								for(Map.Entry<Customer,List<Order>> entry : obj.entrySet())
 								{
-									SCh = true;
-									System.out.println("Enter Your Destination:");
-									destination = Sc.nextLine();
-									for(Map.Entry<String,Shipment> entry : vehicle.entrySet())
+									Customer cuP = entry.getKey();
+									if(cuUser.equals(cuP.getUser()))
 									{
-										if(entry.getValue().getDestination().equalsIgnoreCase(destination)){
-											System.out.println("The Vehicle ID for that Destination is :" +entry.getKey());
-											break;
+										for(Order orP : entry.getValue()){
+											System.out.printf("%-20s%-20s%-20s%-20s%-20s\n",cuP.getId(),cuP.getUser(),orP.getDes(),orP.getOrdDate(),orP.getDelDate());
+											// break;
+											SCh = true;
 										}
 									}
-									System.out.println("No suitable vehicle found for the consignment");
 								}
-							}
-							if(!SCh)
-								System.out.println("Check Your Entered Details...");
-						break;
-						case 4:
-							System.out.println("Exiting..");
-						break;
-						default:
-							System.out.println("Invalid Input\n Try Again..");
-						break;
-					}
-
+								if(!SCh)
+									System.out.println("No User FOund...");
+								break;
+							case 2:
+								ship.viewActive(shObj);
+							break;
+							case 3:
+								Sc.nextLine();
+								SCh = false;
+								System.out.println("Enter UserName:");
+								user = Sc.nextLine();
+								System.out.println("Enter Your Password:");
+								pass = Sc.nextLine();
+								for(Customer cust:conObj)
+								{
+									if((cust.getUser().equals(user)) && (cust.getPass().equals(pass)))
+									{
+										SCh = true;
+										System.out.println("Enter Your Destination:");
+										destination = Sc.nextLine();
+										for(Map.Entry<String,Shipment> entry : vehicle.entrySet())
+										{
+											if(entry.getValue().getDestination().equalsIgnoreCase(destination)){
+												System.out.println("The Vehicle ID for that Destination is :" +entry.getKey());
+												break;
+											}
+										}
+										System.out.println("No suitable vehicle found for the consignment");
+									}
+								}
+								if(!SCh)
+									System.out.println("Check Your Entered Details...");
+							break;
+							case 4:
+								System.out.println("Exiting..");
+							break;
+							default:
+								System.out.println("Invalid Input\n Try Again..");
+							break;
+						}
+					}while(shMch < 4);
 				break;
 				case 5:
 					Sc.nextLine();
@@ -411,6 +456,7 @@ class Main
 							SCh = true;
 							delObj.add(cha);
 							iter.remove();
+							System.out.println("Product Delivery Successfully...");
 						}
 					}
 					if(!SCh)
