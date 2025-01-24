@@ -1,11 +1,11 @@
 import java.time.LocalDate;
 class Order{
-	private String UserName,Source,Destination,typeOfGoods,OrderId,orderedDate,deliveryDate;
+	private String UserName,Source,Destination,typeOfGoods,OrderId,orderedDate,deliveryDate,CustomerNo;
 	private float weight;
 	private double distance;
 	private int totalCost;
 
-	Order(String UserName,String Source,String Destination,String typeOfGoods,float weight,double distance,int totalCost,String OrderId,String orderedDate,String deliveryDate)
+	Order(String UserName,String Source,String Destination,String typeOfGoods,float weight,double distance,int totalCost,String OrderId,String orderedDate,String deliveryDate,String CustomerNo)
 	{
 		this.UserName =UserName;
 		this.Source = Source;
@@ -17,6 +17,7 @@ class Order{
 		this.OrderId = OrderId;
 		this.orderedDate = orderedDate;
 		this.deliveryDate = deliveryDate;
+		this.CustomerNo = CustomerNo;
 	}
 
 	public int findCost(float weight,double distance,int addCost){
@@ -27,10 +28,19 @@ class Order{
 			baserate = 8;
 
 		if(weight >50)
-			weightCharge = (int) (weight-50.0)*5;
+			weightCharge = (int) (weight-50.0);
 
 		return (int)(Math.round((distance*(baserate+addCost))+weightCharge));
 	}
+
+	public String toString(Order obj)
+	{
+		return String.format("%-20s%-20s%-20s\n",obj.UserName,obj.OrderId,obj.deliveryDate);
+	}
+	public String toString1(Order obj)
+		{
+			return String.format("%-20s%-20s%-20s%-20s%-20s\n",obj.UserName,obj.OrderId,obj.Destination,obj.orderedDate,obj.deliveryDate);
+		}
 
 	public String getSource()
 	{
@@ -55,6 +65,10 @@ class Order{
 	public Integer getTotCost()
 	{
 		return totalCost;
+	}
+	public String getCon()
+	{
+		return CustomerNo;
 	}
 	public String getId()
 	{
