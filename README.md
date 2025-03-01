@@ -1,4 +1,4 @@
-# **Consignment Tracking and Shipment Management System**
+# **Consignment Management System**
 
 This project is a Java-based application designed to manage and track consignments and shipments efficiently. It enables administrators to assign orders to shipments, calculate costs, manage customer details, and track shipment progress with ease.
 
