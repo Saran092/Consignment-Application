@@ -19,7 +19,7 @@ This project is a Java-based application designed to manage and track consignmen
 ## Shipment Management
   - Add, view, and manage shipment vehicles.
   - Assign orders to appropriate shipments based on destination and capacity. 
-  View active shipment details. 
+  - View active shipment details of vechicles. 
 ## Cost Calculation
   - Flexible base rates based on distance.
   - Additional charges for goods exceeding weight limits.
